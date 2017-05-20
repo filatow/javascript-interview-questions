@@ -32,6 +32,11 @@ A list of helpful Javascript and front-end related questions you can use to inte
 #### JS Questions:
 
 * Explain event delegation
+* What's the difference between .call and .apply?
+* Explain Function.prototype.bind.
+* Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+* What is the extent of your experience with Promises and/or their polyfills?
+* What are the pros and cons of using Promises instead of callbacks?
 * What is event loop? What is the difference between call stack and task queue?
 
 #### Network Questions:
@@ -115,7 +120,6 @@ for (var i = 0; i < 10; i++) {
   }, 10);
 }
 ```
-
 
 *Question: What does the following code print?*
 ```javascript
