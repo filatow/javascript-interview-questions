@@ -7,7 +7,9 @@ A list of helpful Javascript and front-end related questions you can use to inte
   1. [CSS Questions](#css-questions)
   1. [JS Questions](#js-questions)
   1. [Network Questions](#network-questions)
-  1. [Coding Questions](#coding-questions)
+  1. [Coding Snippets](#coding-questions)
+  1. [Entry Tasks](#entry-tasks)
+  1. [Entry Solutions](#entry-solutions)
 
 #### General Questions:
 
@@ -32,9 +34,9 @@ A list of helpful Javascript and front-end related questions you can use to inte
 #### JS Questions:
 
 * Explain event delegation
+* Explain how `this` works in JavaScript
 * What is a closure, and how/why would you use one?
-* Explain why the following doesn't work as an IIFE: `function foo(){ }();`.
-  * What needs to be changed to properly make it an IIFE?
+* Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
 * What's the difference between .call and .apply?
 * Explain Function.prototype.bind.
 * Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
@@ -49,7 +51,7 @@ A list of helpful Javascript and front-end related questions you can use to inte
 * Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.
 * What are the differences between Long-Polling, Websockets and Server-Sent Events?
 
-#### Coding Questions:
+#### Coding Snippets:
 
 *Question: What is the value of `foo`?*
 ```javascript
@@ -189,3 +191,23 @@ Array.prototype.push.apply(a, b);
 console.log(a); // ?
 console.log(b); // ?
 ```
+
+#### Entry Tasks:
+
+*Write an implementation of `partialApply` function*
+```javascript
+
+test('add10', assert => {
+  const msg = 'partialApply() should partially apply functions'
+
+  const add = (a, b) => a + b;
+  const add10 = partialApply(add, 10);
+
+  const actual = add10(5);
+  const expected = 15;
+
+  assert.equal(actual, expected, msg);
+});
+```
+
+#### Entry Solutions:
