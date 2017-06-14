@@ -10,6 +10,7 @@ A list of helpful Javascript and front-end related questions you can use to inte
   1. [Coding Snippets](#coding-questions)
   1. [Entry Tasks](#entry-tasks)
   1. [Entry Solutions](#entry-solutions)
+  [Open solution](#entry-solution-1)
 
 #### General Questions:
 
@@ -206,10 +207,10 @@ it('partialApply() should partially apply functions', () => {
   expect(actual).to.equal(expected);
 });
 ```
-[Open solution](#entry-solutions-1)
+[Open solution](#entry-solution-1)
 
-
-#### Entry Solutions 1:
+#### Entry Solutions:
+*Entry Solution 1:*
 ```javascript
 
 function partial(fn) {
