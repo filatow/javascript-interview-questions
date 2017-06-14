@@ -194,20 +194,43 @@ console.log(b); // ?
 
 #### Entry Tasks:
 
-*Write an implementation of `partialApply` function*
+*1. Write an implementation of `partialApply` function*
 ```javascript
-
-test('add10', assert => {
-  const msg = 'partialApply() should partially apply functions'
-
+it('partialApply() should partially apply functions', () => {
   const add = (a, b) => a + b;
   const add10 = partialApply(add, 10);
 
   const actual = add10(5);
   const expected = 15;
 
-  assert.equal(actual, expected, msg);
+  expect(actual).to.equal(expected);
 });
 ```
+[Open solution](#entry-solutions-1)
 
-#### Entry Solutions:
+
+#### Entry Solutions 1:
+```javascript
+
+function partial(fn) {
+  var slice = Array.prototype.slice;
+  var args = slice.call(arguments, 1);
+
+  return function() {
+    return fn.apply(this, args.concat(slice.call(arguments, 0)));
+  };
+}
+```
+
+*Write an implementation of `checkBrackets` function*
+```javascript
+it('partialApply() should partially apply functions', () => {
+  const add = (a, b) => a + b;
+  const add10 = partialApply(add, 10);
+
+  const actual = add10(5);
+  const expected = 15;
+
+  expect(actual).to.equal(expected);
+});
+```
