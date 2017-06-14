@@ -10,7 +10,6 @@ A list of helpful Javascript and front-end related questions you can use to inte
   1. [Coding Snippets](#coding-questions)
   1. [Entry Tasks](#entry-tasks)
   1. [Entry Solutions](#entry-solutions)
-  [Open solution](#entry-solution-1)
 
 #### General Questions:
 
@@ -209,21 +208,7 @@ it('partialApply() should partially apply functions', () => {
 ```
 [Open solution](#entry-solution-1)
 
-#### Entry Solutions:
-*Entry Solution 1:*
-```javascript
-
-function partial(fn) {
-  var slice = Array.prototype.slice;
-  var args = slice.call(arguments, 1);
-
-  return function() {
-    return fn.apply(this, args.concat(slice.call(arguments, 0)));
-  };
-}
-```
-
-*Write an implementation of `checkBrackets` function*
+*2. Write an implementation of `checkBrackets` function*
 ```javascript
 it('partialApply() should partially apply functions', () => {
   const add = (a, b) => a + b;
@@ -234,4 +219,25 @@ it('partialApply() should partially apply functions', () => {
 
   expect(actual).to.equal(expected);
 });
+```
+[Open solution](#entry-solution-2)
+
+#### Entry Solutions:
+###### Entry Solution 1:
+```javascript
+function partial(fn) {
+  var slice = Array.prototype.slice;
+  var args = slice.call(arguments, 1);
+
+  return function() {
+    return fn.apply(this, args.concat(slice.call(arguments, 0)));
+  };
+}
+```
+
+###### Entry Solution 2:
+```javascript
+function checkBrackets(str) {
+  return true;
+}
 ```
