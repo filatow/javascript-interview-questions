@@ -211,13 +211,13 @@ it('partialApply() should partially apply functions', () => {
 *2. Write an implementation of `checkBrackets` function*
 ```javascript
 it('checkBrackets() should partially apply functions', () => {
-  // const add = (a, b) => a + b;
-  // const add10 = partialApply(add, 10);
-  //
-  // const actual = add10(5);
-  // const expected = 15;
-  //
-  // expect(actual).to.equal(expected);
+  const truthy = "function test(){ alert(); }";
+  const firstFalsy = "function test)({ alert(); }";
+  const secondFalsy = "[{()(}]";
+
+  expect(checkBrackets(truthy)).to.equal(true));
+  expect(checkBrackets(firstFalsy)).to.equal(false));
+  expect(checkBrackets(secondFalsy)).to.equal(false));
 });
 ```
 [Open solution](#entry-solution-2)
@@ -237,7 +237,30 @@ function partial(fn) {
 
 ##### Entry Solution 2:
 ```javascript
-function checkBrackets(str) {
-  return true;
-}
+const checkBrackets = (str) => {
+  const openingBrackets = {
+    '{': '}',
+    '[': ']',
+    '(': ')',
+  };
+
+  const closingBrackets = {
+    '}': '{',
+    ')': '(',
+    ']': '[',
+  };
+
+  const stack = [];
+  for (var i = 0; i < str.length; i++) {
+    const symbol = str[i];
+    if (openingBrackets[symbol]) {
+      stack.push(openingBrackets[symbol]);
+    } else if (stack.length && stack[stack.length - 1] === symbol) {
+      stack.pop();
+    } else if (closingBrackets[symbol]) {
+      return false;
+    }
+  }
+  return stack.length === 0;
+};
 ```
