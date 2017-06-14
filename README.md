@@ -225,9 +225,9 @@ it('checkBrackets() should partially apply functions', () => {
 #### Entry Solutions:
 ##### Entry Solution 1:
 ```javascript
-function partial(fn) {
-  var slice = Array.prototype.slice;
-  var args = slice.call(arguments, 1);
+function partialApply(fn) {
+  const slice = Array.prototype.slice;
+  const args = slice.call(arguments, 1);
 
   return function() {
     return fn.apply(this, args.concat(slice.call(arguments, 0)));
