@@ -223,7 +223,7 @@ it('partialApply() should partially apply functions', () => {
 [Open solution](#entry-solution-2)
 
 #### Entry Solutions:
-###### Entry Solution 1:
+#### Entry Solution 1:
 ```javascript
 function partial(fn) {
   var slice = Array.prototype.slice;
@@ -235,7 +235,7 @@ function partial(fn) {
 }
 ```
 
-###### Entry Solution 2:
+#####Entry Solution 2:
 ```javascript
 function checkBrackets(str) {
   return true;
