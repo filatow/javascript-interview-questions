@@ -54,9 +54,14 @@ A list of helpful Javascript and front-end related questions you can use to inte
 
 #### Coding Snippets:
 
-*Question: What is the value of `foo`?*
+*What will the code below output to the console and why ?*
 ```javascript
-var foo = 10 + '20';
+console.log(1 +  "2" + "2");
+console.log(1 +  +"2" + "2");
+console.log(1 +  -"1" + "2");
+console.log(+"1" +  "1" + "2");
+console.log( "A" - "B" + "2");
+console.log( "A" - "B" + 2);
 ```
 
 *Question: What is the value of `foo.length`?*
@@ -163,6 +168,32 @@ add(2, 5); // 7
 add(2)(5); // 7
 ```
 
+*Write an implementation of `isPalindrome` function*
+```javascript
+console.log(isPalindrome("level"));                   // logs 'true'
+console.log(isPalindrome("levels"));                  // logs 'false'
+console.log(isPalindrome("A car, a man, a maraca"));  // logs 'true'
+```
+
+*What gets logged to the console when the user clicks on “Button 4” and why?*
+```javascript
+for (var i = 0; i < 5; i++) {
+  var btn = document.createElement('button');
+  btn.appendChild(document.createTextNode('Button ' + i));
+  btn.addEventListener('click', function(){ console.log(i); });
+  document.body.appendChild(btn);
+}
+```
+
+*Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.*
+```javascript
+
+// The arguments to the function should be:
+//
+// a DOM element
+// a callback function (that takes a DOM element as its argument)
+function Traverse(p_element,p_callback) { ... }
+```
 
 #### Entry Tasks:
 
