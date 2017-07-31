@@ -49,7 +49,10 @@ alert(foo + bar);
   console.log('5');
 
 })();
+
+//
 ```
+
 
 *Question: What does the following code print?*
 ```javascript
