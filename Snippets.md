@@ -124,6 +124,8 @@ console.log(isPalindrome("A car, a man, a maraca"));  // logs 'true'
 //
 //
 //
+//
+//
 ```
 
 *What gets logged to the console when the user clicks on “Button 4” and why?*
