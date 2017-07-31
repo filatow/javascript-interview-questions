@@ -20,6 +20,7 @@ A list of helpful Javascript and front-end related questions you can use to inte
 * Which version control systems are you familiar with?
 * If you could master one technology this year, what would it be?
 * What does CORS stand for and what issue does it address?
+* What is functional programming?
 
 #### HTML Questions:
 
@@ -58,20 +59,16 @@ A list of helpful Javascript and front-end related questions you can use to inte
 var foo = 10 + '20';
 ```
 
-*Question: How would you make this work?*
+*Question: What is the value of `foo.length`?*
 ```javascript
-add(2, 5); // 7
-add(2)(5); // 7
+var foo = [];
+foo.push(1);
+foo.push(2);
 ```
 
 *Question: What value is returned from the following statement?*
 ```javascript
-"i'm a lasagna hog".split("").reverse().join("");
-```
-
-*Question: What is the value of `window.foo`?*
-```javascript
-( window.foo || ( window.foo = "bar" ) );
+"12345".split("").reverse().join("");
 ```
 
 *Question: What is the outcome of the two alerts below?*
@@ -82,20 +79,6 @@ var foo = "Hello";
   alert(foo + bar);
 })();
 alert(foo + bar);
-```
-
-*Question: What is the value of `foo.length`?*
-```javascript
-var foo = [];
-foo.push(1);
-foo.push(2);
-```
-
-*Question: What is the value of `foo.x`?*
-```javascript
-var foo = {n: 1};
-var bar = foo;
-foo.x = foo = {n: 2};
 ```
 
 *Question: In what order the console.log statements will be invoked?*
@@ -139,24 +122,6 @@ for (var i = 0; i < 10; i++) {
 }
 ```
 
-*Question: What does the following code print? How to fix it if it has any problems?*
-```javascript
-// We have a simple object with a clickHandler method that we want to use when a button on the page is clicked​
-    var user = {
-      data: [
-        { name:"T. Woods", age:37 },
-        { name:"P. Mickelson", age:43 }
-      ],
-      clickHandler: function(event) {
-        var randomNum = ((Math.random () * 2 | 0) + 1) - 1; // random number between 0 and 1​
-    ​
-        console.log(this.data[randomNum].name + " " + this.data[randomNum].age);
-      }
-    }
-​
-    $("button").click(user.clickHandler); // ?
-```
-
 *Question: What does the following code print?*
 ```javascript
 var num = 10,
@@ -191,6 +156,13 @@ Array.prototype.push.apply(a, b);
 console.log(a); // ?
 console.log(b); // ?
 ```
+
+*Question: How would you make this work?*
+```javascript
+add(2, 5); // 7
+add(2)(5); // 7
+```
+
 
 #### Entry Tasks:
 
