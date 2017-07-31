@@ -120,6 +120,10 @@ add(2)(5); // 7
 console.log(isPalindrome("level"));                   // logs 'true'
 console.log(isPalindrome("levels"));                  // logs 'false'
 console.log(isPalindrome("A car, a man, a maraca"));  // logs 'true'
+
+//
+//
+//
 ```
 
 *What gets logged to the console when the user clicks on “Button 4” and why?*
