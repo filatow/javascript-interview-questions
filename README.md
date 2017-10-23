@@ -6,10 +6,7 @@ A list of helpful Javascript and front-end related questions you can use to inte
   1. [HTML Questions](#html-questions)
   1. [CSS Questions](#css-questions)
   1. [JS Questions](#js-questions)
-  1. [Network Questions](#network-questions)
   1. [Coding Snippets](#coding-questions)
-  1. [Entry Tasks](#entry-tasks)
-  1. [Entry Solutions](#entry-solutions)
 
 #### General Questions:
 
@@ -31,28 +28,40 @@ A list of helpful Javascript and front-end related questions you can use to inte
 #### CSS Questions:
 
 * What are the advantages/disadvantages of using CSS preprocessors?
+* How would you approach fixing browser-specific styling issues?
+* Describe pseudo-elements and discuss what they are used for.
+* What's the difference between inline and inline-block?
+* What's the difference between a relative, fixed, absolute and statically positioned element?
 
 #### JS Questions:
 
 * Explain event delegation
 * Explain how `this` works in JavaScript
+* What is NaN? What is its type? How can you reliably test if a value is equal to NaN?
+* Explain how prototypal inheritance works
 * What is a closure, and how/why would you use one?
-* Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
+* How do you organize your code? (module pattern, classical inheritance?)
 * What's the difference between .call and .apply?
 * Explain Function.prototype.bind.
-* Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+* Why is extending built-in JavaScript objects not a good idea?
 * Explain the difference between synchronous and asynchronous functions.
 * What is the extent of your experience with Promises and/or their polyfills?
 * What are the pros and cons of using Promises instead of callbacks?
 * Explain the difference between mutable and immutable objects.
 * What is event loop? What is the difference between call stack and task queue?
-
-#### Network Questions:
-
+* What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 * Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.
 * What are the differences between Long-Polling, Websockets and Server-Sent Events?
+* How do you clone an object?
 
 #### Coding Snippets:
+
+
+
+What is the value of the following expression?
+```javascript
+console.log(typeof undefined == typeof NULL);
+```
 
 *What will the code below output to the console and why ?*
 ```javascript
@@ -64,11 +73,56 @@ console.log( "A" - "B" + "2");
 console.log( "A" - "B" + 2);
 ```
 
-*Question: What is the value of `foo.length`?*
+*What would following code return?*
 ```javascript
-var foo = [];
-foo.push(1);
-foo.push(2);
+console.log(typeof typeof 1);
+```
+
+*What will the code below output? Explain your answer.*
+```javascript
+console.log(0.1 + 0.2);
+console.log(0.1 + 0.2 == 0.3);
+```
+
+*What do the following lines output, and why?*
+```javascript
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+```
+
+*Imagine you have this code:*
+```javascript
+var a = [1, 2, 3];
+a[10] = 99; // Will this result in a crash?
+console.log(a[6]); // What will this output?
+```
+
+*Consider the two functions below. Will they both return the same thing? Why or why not?*
+```javascript
+function foo1()
+{
+  return {
+      bar: "hello"
+  };
+}
+
+function foo2()
+{
+  return
+  {
+      bar: "hello"
+  };
+}
+```
+
+*What will be the output of this code?*
+```javascript
+var x = 21;
+var girl = function () {
+    console.log(x);
+    var x = 20;
+};
+girl ();
 ```
 
 *Question: What value is returned from the following statement?*
@@ -84,6 +138,15 @@ var foo = "Hello";
   alert(foo + bar);
 })();
 alert(foo + bar);
+```
+
+*Assuming d is an “empty” object in scope. What is accomplished using the following code?*
+```javascript
+var d = {};
+
+[ 'zebra', 'horse' ].forEach(function(k) {
+	d[k] = undefined;
+});
 ```
 
 *Question: In what order the console.log statements will be invoked?*
@@ -152,6 +215,24 @@ console.log(obj2.value); // ?
 console.log(obj3.value); // ?
 ```
 
+*Testing your this knowledge in JavaScript: What is the output of the following code?*
+```javascript
+var length = 10;
+function fn() {
+	console.log(this.length);
+}
+
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();
+  }
+};
+
+obj.method(fn, 1);
+```
+
 *Question: What does the following code print?*
 ```javascript
 var a = [1, 2, 3];
@@ -175,16 +256,6 @@ console.log(isPalindrome("levels"));                  // logs 'false'
 console.log(isPalindrome("A car, a man, a maraca"));  // logs 'true'
 ```
 
-*What gets logged to the console when the user clicks on “Button 4” and why?*
-```javascript
-for (var i = 0; i < 5; i++) {
-  var btn = document.createElement('button');
-  btn.appendChild(document.createTextNode('Button ' + i));
-  btn.addEventListener('click', function(){ console.log(i); });
-  document.body.appendChild(btn);
-}
-```
-
 *Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.*
 ```javascript
 
@@ -193,77 +264,4 @@ for (var i = 0; i < 5; i++) {
 // a DOM element
 // a callback function (that takes a DOM element as its argument)
 function Traverse(p_element,p_callback) { ... }
-```
-
-#### Entry Tasks:
-
-*1. Write an implementation of `partialApply` function*
-```javascript
-it('partialApply() should partially apply functions', () => {
-  const add = (a, b) => a + b;
-  const add10 = partialApply(add, 10);
-
-  const actual = add10(5);
-  const expected = 15;
-
-  expect(actual).to.equal(expected);
-});
-```
-[Open solution](#entry-solution-1)
-
-*2. Write an implementation of `checkBrackets` function*
-```javascript
-it('checkBrackets() should partially apply functions', () => {
-  const truthy = "function test(){ alert(); }";
-  const firstFalsy = "function test)({ alert(); }";
-  const secondFalsy = "[{()(}]";
-
-  expect(checkBrackets(truthy)).to.equal(true));
-  expect(checkBrackets(firstFalsy)).to.equal(false));
-  expect(checkBrackets(secondFalsy)).to.equal(false));
-});
-```
-[Open solution](#entry-solution-2)
-
-#### Entry Solutions:
-##### Entry Solution 1:
-```javascript
-function partialApply(fn) {
-  const slice = Array.prototype.slice;
-  const args = slice.call(arguments, 1);
-
-  return function() {
-    return fn.apply(this, args.concat(slice.call(arguments, 0)));
-  };
-}
-```
-
-##### Entry Solution 2:
-```javascript
-const checkBrackets = (str) => {
-  const openingBrackets = {
-    '{': '}',
-    '[': ']',
-    '(': ')',
-  };
-
-  const closingBrackets = {
-    '}': '{',
-    ')': '(',
-    ']': '[',
-  };
-
-  const stack = [];
-  for (var i = 0; i < str.length; i++) {
-    const symbol = str[i];
-    if (openingBrackets[symbol]) {
-      stack.push(openingBrackets[symbol]);
-    } else if (stack.length && stack[stack.length - 1] === symbol) {
-      stack.pop();
-    } else if (closingBrackets[symbol]) {
-      return false;
-    }
-  }
-  return stack.length === 0;
-};
 ```
