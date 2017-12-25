@@ -265,3 +265,16 @@ console.log(isPalindrome("A car, a man, a maraca"));  // logs 'true'
 // a callback function (that takes a DOM element as its argument)
 function Traverse(p_element,p_callback) { ... }
 ```
+
+```javascript
+var module = {
+  exports: {}
+};
+
+// If you require a module, it's basically wrapped in a function
+(function(module, exports) {
+  exports = function (n) { return n * 1000 };
+}(module, module.exports))
+
+console.log(module.exports); // it's still an empty object :(
+```
