@@ -56,81 +56,35 @@ A list of helpful Javascript and front-end related questions you can use to inte
 
 #### Coding Snippets:
 
-
-
-What is the value of the following expression?
+*1. What will the code below output to the console and why ?*
 ```javascript
-console.log(typeof undefined == typeof NULL);
-```
-
-*What will the code below output to the console and why ?*
-```javascript
-console.log(1 +  "2" + "2");
-console.log(1 +  +"2" + "2");
-console.log(1 +  -"1" + "2");
-console.log(+"1" +  "1" + "2");
-console.log( "A" - "B" + "2");
-console.log( "A" - "B" + 2);
-```
-
-*What would following code return?*
-```javascript
+console.log(4 + 3 + 2 + "1");
 console.log(typeof typeof 1);
-```
-
-*What will the code below output? Explain your answer.*
-```javascript
-console.log(0.1 + 0.2);
-console.log(0.1 + 0.2 == 0.3);
-```
-
-*What do the following lines output, and why?*
-```javascript
 console.log(1 < 2 < 3);
 console.log(3 > 2 > 1);
 ```
 
-*Imagine you have this code:*
-```javascript
-var a = [1, 2, 3];
-a[10] = 99; // Will this result in a crash?
-console.log(a[6]); // What will this output?
-```
-
-*Consider the two functions below. Will they both return the same thing? Why or why not?*
-```javascript
-function foo1()
-{
-  return {
-      bar: "hello"
-  };
-}
-
-function foo2()
-{
-  return
-  {
-      bar: "hello"
-  };
-}
-```
-
-*What will be the output of this code?*
-```javascript
-var x = 21;
-var girl = function () {
-    console.log(x);
-    var x = 20;
-};
-girl ();
-```
-
-*Question: What value is returned from the following statement?*
+*2. What value is returned from the following statement?*
 ```javascript
 "12345".split("").reverse().join("");
 ```
 
-*Question: What is the outcome of the two alerts below?*
+*3. What does the following code print?*
+```javascript
+var a = [1, 2, 3];
+var b = [4, 5, 6];
+
+Array.prototype.push.apply(a, b);
+console.log(a); // ?
+console.log(b); // ?
+```
+
+*4. Write a function*
+```javascript
+spacify('hello world') // outputs 'h e l l o  w o r l d'
+```
+
+*5. What is the outcome of the two alerts below?*
 ```javascript
 var foo = "Hello";
 (function() {
@@ -140,37 +94,42 @@ var foo = "Hello";
 alert(foo + bar);
 ```
 
-*Assuming d is an “empty” object in scope. What is accomplished using the following code?*
+*6. What will the code below output to the console and why ?*
 ```javascript
-var d = {};
+var User = {
+  count: 1,
 
-[ 'zebra', 'horse' ].forEach(function(k) {
-	d[k] = undefined;
-});
+  getCount: function() {
+    return this.count;
+  }
+};
+
+console.log(User.getCount());
+
+var func = User.getCount;
+console.log(func());
 ```
 
-*Question: In what order the console.log statements will be invoked?*
+*7. In what order the console.log statements will be invoked?*
 ```javascript
 (function() {
-
   console.log('1');
 
-  setTimeout(function cb() {
+  setTimeout(() => {
     console.log('2');
-  });
+  }, 0);
 
   console.log('3');
 
-  setTimeout(function cb1() {
+  setTimeout(() => {
     console.log('4');
   }, 0);
 
   console.log('5');
-
 })();
 ```
 
-*Question: What does the following code print?*
+*8. What does the following code print?*
 ```javascript
 say('Python'); // ?
 
@@ -181,7 +140,7 @@ function say(name) {
 }
 ```
 
-*Question: What does the following code print?*
+*9. What does the following code print?*
 ```javascript
 for (var i = 0; i < 10; i++) {
   setTimeout(function() {
@@ -190,7 +149,7 @@ for (var i = 0; i < 10; i++) {
 }
 ```
 
-*Question: What does the following code print?*
+*10. What does the following code print?*
 ```javascript
 var num = 10,
     obj1 = {
@@ -215,57 +174,20 @@ console.log(obj2.value); // ?
 console.log(obj3.value); // ?
 ```
 
-*Testing your this knowledge in JavaScript: What is the output of the following code?*
-```javascript
-var length = 10;
-function fn() {
-	console.log(this.length);
-}
-
-var obj = {
-  length: 5,
-  method: function(fn) {
-    fn();
-    arguments[0]();
-  }
-};
-
-obj.method(fn, 1);
-```
-
-*Question: What does the following code print?*
-```javascript
-var a = [1, 2, 3];
-var b = [4, 5, 6];
-
-Array.prototype.push.apply(a, b);
-console.log(a); // ?
-console.log(b); // ?
-```
-
-*Question: How would you make this work?*
+*11. How would you make this work?*
 ```javascript
 add(2, 5); // 7
 add(2)(5); // 7
 ```
 
-*Write an implementation of `isPalindrome` function*
+*12. Write an implementation of `isPalindrome` function*
 ```javascript
 console.log(isPalindrome("level"));                   // logs 'true'
 console.log(isPalindrome("levels"));                  // logs 'false'
 console.log(isPalindrome("A car, a man, a maraca"));  // logs 'true'
 ```
 
-*Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.*
-```javascript
-
-// The arguments to the function should be:
-//
-// a DOM element
-// a callback function (that takes a DOM element as its argument)
-function Traverse(p_element,p_callback) { ... }
-```
-
+*13. What does the following code print?*
 ```javascript
 var module = {
   exports: {}
@@ -276,5 +198,5 @@ var module = {
   exports = function (n) { return n * 1000 };
 }(module, module.exports))
 
-console.log(module.exports); // it's still an empty object :(
+console.log(module.exports);
 ```
